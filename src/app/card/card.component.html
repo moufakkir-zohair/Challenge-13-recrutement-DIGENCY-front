@@ -1,0 +1,25 @@
+<div id="carte">
+    <div class="bg-card">
+        <div class="container">
+            <h1 class="lead fs-3  text-center">البطاقة المهنية</h1>
+            <h1 class="lead fs-3  text-center">CARTE PROFESSIONNELLE</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <img class="img-fluid" style="height: 300px ; width: 250px ;"
+                        src="http://localhost:8080/img/profil.png" crossorigin="*">
+                </div>
+                <div class="col-lg-4 col-md-4 mt-5">
+                    <p class="fs-4"> <span class="fw-bold"> Prénom : </span> {{user.prenomFr}} </p>
+                    <p class="fs-4"> <span class="fw-bold">Nom : </span> {{user.nomFr}}</p>
+                </div>
+                <div class="col-lg-4 col-md-4 text-lg-end  mt-5">
+                    <p class="fs-4"> <span class="fw-bold">الإسم الشخصي : </span> {{user.prenomAr}} </p>
+                    <p class="fs-4"> <span class="fw-bold">الإسم العائلي: </span> {{user.nomAr}} </p>
+                </div>
+            </div>
+        </div>
+        <img src="{{environment.host}}/img/qr.png" class="qr">
+    </div>
+</div>
+
+<button class="btn buttonGenerate" (click)="onGenerate()">Imprimer</button>

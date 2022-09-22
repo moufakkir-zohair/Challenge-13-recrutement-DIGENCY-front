@@ -1,0 +1,30 @@
+.bg-card {
+    background-image: url("../../assets/images/bg.jpg");
+    background-position: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.qr {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 100px;
+    width: 100px;
+}
+
+.buttonGenerate {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border-radius: 0%;
+}
+
+.buttonGenerate:hover{
+    background-color: white;
+    color: black;
+}
