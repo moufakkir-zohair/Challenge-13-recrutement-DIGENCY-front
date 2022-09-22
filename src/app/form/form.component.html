@@ -1,74 +1,3 @@
-<!-- <div class="container">
-    <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
-        <div class="form-group">
-           <div class="mb-3 col-lg-4">
-            <label for="nom-fr" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="nom-fr" name="nom-fr" placeholder="name@example.com"
-                formControlName="nomFr">
-          
-        </div>
-        <div class="mb-3 col-lg-4">
-            <label for="nom-ar" class="form-label">Nom en arabe</label>
-            <input type="text" class="form-control" id="" name="nom-ar" placeholder="name@example.com"
-                formControlName="nomAr">
-        </div> 
-        </div>
-        
-
-        <div class="mb-3">
-            <label for="prenom-fr" class="form-label">prenom</label>
-            <input type="text" class="form-control" id="prenom-fr" name="prenom-fr" placeholder="name@example.com"
-                formControlName="prenomFr">
-        </div>
-
-        <div class="mb-3">
-            <label for="prenom-ar" class="form-label">prenom en arabe</label>
-            <input type="text" class="form-control" id="prenom-ar" name="prenom-ar" placeholder="name@example.com"
-                formControlName="prenomAr">
-        </div>
-
-        <div class="mb-3">
-            <label for="cin" class="form-label">CIN</label>
-            <input type="text" class="form-control" id="cin" name="cin" placeholder="name@example.com"
-                formControlName="cin">
-        </div>
-
-        <div class="mb-3">
-            <label for="profession" class="form-label">Profession</label>
-            <input type="text" class="form-control" id="profession" name="profession" placeholder="name@example.com"
-                formControlName="profession">
-        </div>
-
-        <div class="mb-3">
-            <label for="ddn" class="form-label">Date de naissance</label>
-            <input type="date" class="form-control" id="ddn" name="ddn" placeholder="name@example.com"
-                formControlName="dateNaissance">
-        </div>
-
-        <div class="form-check-radio form-check-inline">
-            <input class="form-check-input" type="radio" id="A" value="A" formControlName="typeCarte">
-            <label class="form-check-label" for="A">A</label>
-        </div>
-
-        <div class="form-check-radio form-check-inline">
-            <input class="form-check-input" type="radio" id="B" value="B" formControlName="typeCarte">
-            <label class="form-check-label" for="B">B</label>
-        </div>
-
-        <div class="mb-3">
-            <label for="formFile" class="form-label">Default file input example</label>
-            <input class="form-control" type="file" id="formFile" name="file" formControlName="image"
-                (change)="onSelectedFile($event)">
-            <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
-                <div *ngIf="f.file.errors.required">File is required.</div>
-            </div>
-        </div>
-        <input type="submit" class="btn btn-secondary" />
-    </form>
-</div>
- -->
-
-
 <main class="bg-card">
     <div class="container">
         <div class="row justify-content-center align-items-center" style="height: 100vh;">
@@ -84,8 +13,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-label" for="nom-fr">Nom</label>
-                                            <input class="form-control" type="text" id="nom-fr"
-                                                formControlName="nomFr"
+                                            <input class="form-control" type="text" id="nom-fr" formControlName="nomFr"
                                                 [ngClass]="{'is-invalid': submitted && userForm.controls['nomFr'].errors}" />
                                         </div>
                                     </div>
@@ -106,7 +34,7 @@
                                         <div class="form-group ">
                                             <label class="form-label mb-1" for="prenom-fr">Prénom</label>
                                             <input class="form-control" type="text" id="prenom-fr"
-                                                formControlName="prenomFr" 
+                                                formControlName="prenomFr"
                                                 [ngClass]="{'is-invalid': submitted && userForm.controls['prenomFr'].errors}" />
                                         </div>
                                     </div>
@@ -126,8 +54,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-label mb-1" for="cin">Cin</label>
-                                            <input class="form-control" type="text" formControlName="cin" 
-                                            [ngClass]="{'is-invalid': submitted && userForm.controls['cin'].errors}" />
+                                            <input class="form-control" type="text" formControlName="cin"
+                                                [ngClass]="{'is-invalid': submitted && userForm.controls['cin'].errors}" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -144,7 +72,7 @@
                             <div class="form-group  mt-2">
                                 <label class="form-label mb-1" for="dateNaissance">Date de naissance</label>
                                 <input class="form-control" type="date" formControlName="dateNaissance"
-                                [ngClass]="{'is-invalid': submitted && userForm.controls['dateNaissance'].errors}" />
+                                    [ngClass]="{'is-invalid': submitted && userForm.controls['dateNaissance'].errors}" />
                             </div>
 
                             <div class="form-group mt-3">
@@ -176,10 +104,15 @@
                                     [ngClass]="{'is-invalid': submitted && userForm.controls['image'].errors}" />
 
                             </div>
+
                             <div class="form-group mt-4 mb-0">
-                                <button (click)="onSubmitForm()" type="button"
-                                    class="btn btn-primary btn-lg col-12">Enregister</button>
+                                <button class="btn btn-primary btn-lg col-12" (click)="onSubmitForm()" type="button">
+                                    <span *ngIf="submitted" class="spinner-border spinner-border-sm" role="status"
+                                        aria-hidden="true"></span>
+                                    Enregister
+                                </button>
                             </div>
+
                         </form>
                     </div>
                 </div>

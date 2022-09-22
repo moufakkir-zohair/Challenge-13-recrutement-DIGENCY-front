@@ -1,83 +1,3 @@
-// import { HttpEventType, HttpResponse } from '@angular/common/http';
-// import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup } from '@angular/forms';
-// import { QrCodeGeneratorService } from '../services/qrcodegenerator.service';
-
-// @Component({
-//   selector: 'app-form',
-//   templateUrl: './form.component.html',
-//   styleUrls: ['./form.component.css']
-// })
-// export class FormComponent implements OnInit {
-
-//   userForm !: FormGroup;
-//   urllink: string = ""
-
-
-
-//   currentCar : any;
-//   editPhoto !: boolean;
-//   selectedFiles: any;
-//   progress!: number;
-//   currentFileUpload: any;
-//   currentTime!: number;
-
-
-//   constructor(private formBuilder: FormBuilder, private qrcodegeneratorService: QrCodeGeneratorService){
-
-//   }
-
-//   ngOnInit(){
-//     this.initForm();
-//   }
-
-
-//   initForm() {
-//     this.userForm = this.formBuilder.group({
-//       nomFr: '',
-//       nomAr: '',
-//       prenomFr: '',
-//       prenomAr: '',
-//       cin: '',
-//       profession: '',
-//       dateNaissance: '',
-//       typeCarte: '',
-//       image: '',
-//     })
-//   }
-
-
-//   onSubmitForm(){
-//     this.qrcodegeneratorService.QrCodeGenerator(this.userForm.value).subscribe(data =>{
-//       console.log(data);
-//     })
-//   }
-
-
-
-//   onSelectedFile(event: any) {
-//     this.selectedFiles=event.target.files;
-//     this.uploadPhoto();
-//   }
-
-//   uploadPhoto() {
-//     this.currentFileUpload = this.selectedFiles.item(0)
-//     this.qrcodegeneratorService.uploadPhotoCar(this.currentFileUpload).subscribe(event => {
-//       if (event.type === HttpEventType.UploadProgress) {
-//       } else if (event instanceof HttpResponse) {
-//       }
-//     },err=>{
-//       alert("Problème de chargement");
-//     })
-
-//   }
-
-// }
-
-
-
-
-
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -125,7 +45,9 @@ export class FormComponent implements OnInit {
     if (this.userForm?.invalid) return;
     this.store.dispatch(new UplaodPhotoAction(this.selectedFiles));
     this.store.dispatch(new QrCodeGenerateAction(this.userForm.value));
-    this.router.navigateByUrl('/card');
+    setTimeout(() => 
+      this.router.navigateByUrl('/card')
+    ,3000);
   }
 
 
