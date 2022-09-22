@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
   userForm !: FormGroup;
   selectedFiles: any;
   submitted: boolean = false;
-
+  
   constructor(private formBuilder: FormBuilder, private store: Store<any>, private router: Router, private qrcodegeneratorService: QrCodeGeneratorService) {
 
   }
